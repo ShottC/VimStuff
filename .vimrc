@@ -13,6 +13,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set noexpandtab
+set autoindent
+set smartindent 
+set cindent
 set colorcolumn=80
 highlight ColorColumn ctermbg=darkgray
 set tabpagemax=15
@@ -27,11 +30,13 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+:nnoremap <silent> [<space> :pu! _<cr>:']+1<cr>
+:nnoremap <silent> ]<space> :pu _<cr>:'[-1<cr>
 set number!
 set nu!
 set relativenumber
 set rnu
-" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call EasyMode()<CR>
 nnoremap <leader>H <Esc>:call HardMode()<CR>
 color northpole
